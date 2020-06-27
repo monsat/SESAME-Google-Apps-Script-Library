@@ -64,6 +64,12 @@ var Client = /** @class */ (function () {
       }).getContentText()
     );
   };
+  Client.prototype.parseWebhookContents = function (e) {
+    var results = JSON.parse(e.postData.contents);
+    results.state = results.locked ? 'locked' : 'unlocked';
+    results.unlocked = !results.locked;
+    return results;
+  };
   
   // Endpoint
   Client.baseUrl = 'https://api.candyhouse.co/public/';
@@ -101,4 +107,16 @@ exports.Client = Client;
 //  var results = client.getActionResult(task_id);
 //  var results = client.getActionResult(task_id);
 //  Logger.log(results);
+//  
+//  // Webhook
+//  function doGet(e) {
+//    var contents = client.parseWebhookContents(e);
+//    Logger.log(contents);
+//    return ContentService.createTextOutput("OK").setMimeType(ContentService.MimeType.TEXT);
+//  }
+//  function doPost(e) {
+//    var contents = client.parseWebhookContents(e);
+//    Logger.log(contents);
+//    return ContentService.createTextOutput("OK").setMimeType(ContentService.MimeType.TEXT);
+//  }
 //'
