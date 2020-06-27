@@ -95,6 +95,25 @@ var results = client.getActionResult(task_id);
 Logger.log(results);
 ```
 
+#### Webhook Contents : Webhookのコンテンツ
+
+Webhook 利用時に受け取ったコンテンツを整形して返します。
+
+```javascirpt
+function doPost(e) {
+  var contents = client.parseWebhookContents(e);
+  Logger.log(contents);
+  return ContentService.createTextOutput("OK").setMimeType(ContentService.MimeType.TEXT);
+}
+```
+
+* 整形後のキー（太字は送信されてくるものと同一）
+  * **device_id** : string
+  * **locked** : boolean
+  * state : `locked` or `unlocked`
+  * unlocked : boolean
+
+
 ## Links
 
 ### API Document
