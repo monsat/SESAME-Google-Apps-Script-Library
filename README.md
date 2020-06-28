@@ -21,7 +21,7 @@ USAGE
 
 **Add a Library** に上記の APP ID を入力し追加します。
 
-### Select a virsion.
+### Select a version.
 
 利用するバージョンを選択します。
 
