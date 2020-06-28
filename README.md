@@ -21,7 +21,7 @@ USAGE
 
 **Add a Library** に上記の APP ID を入力し追加します。
 
-### Select s virsion.
+### Select a virsion.
 
 利用するバージョンを選択します。
 
@@ -39,7 +39,7 @@ Identifierの欄に任意の名称を入力します。
 アカウントに紐付いたSESAMEの一覧を取得します。
 `YOUR_AUTH_TOKEN` には、最下部のリンク先で取得した `API Key` を文字列で指定してください。
 
-```javascirpt
+```js
 var client = new Sesame.Client({apiKey: YOUR_AUTH_TOKEN});
 var results = client.getDeviceList();
 Logger.log(results);
@@ -52,7 +52,7 @@ Statusの取得や機器の操作（施錠・解錠）時に `device_id` が使�
 利用している機器がひとつだけの場合は、次のような記述で `device_id` を取得できます。
 （複数ある場合も引数に数値で指定可能）
 
-```javascirpt
+```js
 var device_id = client.deviceId();
 Logger.log(device_id);
 Logger.log(client.devices);
@@ -62,7 +62,7 @@ Logger.log(client.devices);
 
 指定した機器の状態（施錠・解錠）を取得します。
 
-```javascirpt
+```js
 var results = client.getStatus(device_id);
 Logger.log(results);
 ```
@@ -74,7 +74,7 @@ Logger.log(results);
 
 戻り値は `task_id` です。
 
-```javascirpt
+```js
 var task_id = client.controlDevice(device_id, "lock");
 Logger.log(task_id);
 
@@ -90,7 +90,7 @@ Logger.log(task_id);
 実行した操作の結果を取得します。
 実行直後の `status` は `processing` となり、実行完了後は `terminated` が返ります。
 
-```javascirpt
+```js
 var results = client.getActionResult(task_id);
 Logger.log(results);
 ```
@@ -99,7 +99,7 @@ Logger.log(results);
 
 Webhook 利用時に受け取ったコンテンツを整形して返します。
 
-```javascirpt
+```js
 function doPost(e) {
   var contents = client.parseWebhookContents(e);
   Logger.log(contents);
