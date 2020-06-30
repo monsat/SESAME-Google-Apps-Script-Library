@@ -40,7 +40,7 @@ Identifierの欄に任意の名称を入力します。
 `YOUR_AUTH_TOKEN` には、最下部のリンク先で取得した `API Key` を文字列で指定してください。
 
 ```js
-var client = new Sesame.Client({apiKey: YOUR_AUTH_TOKEN});
+var client = Sesame.create({apiKey: YOUR_AUTH_TOKEN});
 var results = client.getDeviceList();
 Logger.log(results);
 ```
