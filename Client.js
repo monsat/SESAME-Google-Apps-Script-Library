@@ -82,7 +82,7 @@
 /**
  * Create Sesame instance
  * @param {Object} config configure object: [apiKey] is required.
- * @return {Client} a Sesame client
+ * @return {Sesame} a Sesame client
  */
 function create(config) {
   return new Client(config);
