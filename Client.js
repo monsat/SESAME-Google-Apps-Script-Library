@@ -175,7 +175,7 @@ function parseWebhookContents(e) {
 //USAGE:
 //  Resource - Library [add]
 //  
-//  var client = new Sesame.Client({apiKey: YOUR_AUTH_TOKEN});
+//  var client = Sesame.create({apiKey: YOUR_AUTH_TOKEN});
 //  var results = client.getDeviceList();
 //  Logger.log(results);
 //  var device_id = client.deviceId();
